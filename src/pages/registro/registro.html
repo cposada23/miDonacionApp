@@ -1,0 +1,61 @@
+<!--
+  Generated template for the Registro page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+</ion-header>
+
+
+<ion-content padding>
+<form autocomplete="off" novalidate [formGroup]="form">
+    <ion-list>
+      <ion-item style="background-color: transparent" >
+        <ion-label floating><font color="white" size="4">Email</font></ion-label>
+        <ion-input type="email" class="login-input" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Contraseña</font></ion-label>
+        <ion-input type="password" class="login-input" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Confirmar Contraseña</font></ion-label>
+        <ion-input type="password" class="login-input" formControlName="confirm"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Nombre</font></ion-label>
+        <ion-input type="text" class="login-input" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Apellidos</font></ion-label>
+        <ion-input type="text" class="login-input" formControlName="apellidos"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Universidad</font></ion-label>
+        <ion-input type="text" class="login-input" formControlName="universidad"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: transparent">
+        <ion-label floating ><font color="white" size="4">Carrera</font></ion-label>
+        <ion-input type="text" class="login-input" formControlName="carrera"></ion-input>
+      </ion-item>
+
+      <ion-item style="background-color: transparent">
+        <ion-label>Genero</ion-label>
+        <ion-select formControlName="genero">
+          <ion-option>Masculino</ion-option>
+          <ion-option>Femenino</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block (click)="registro()" [disabled]="!isPasswordMatch()">Registrarse</button>
+    </div>
+  </form>
+  <div padding>
+    <button ion-button color="primary" block (click)="irLogin()" >Login</button>
+  </div>
+</ion-content>
