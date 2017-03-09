@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { PreguntaPage } from '../pregunta/pregunta';
 /*
   Generated class for the Home page.
 
@@ -23,4 +24,16 @@ export class HomePage {
     console.log("hola");
     this.navCtrl.push(LoginPage);
   }  
+
+  irDonar(){
+    this.navCtrl.push(PreguntaPage, {
+      pregunta:'¿Qué quieres donar?'
+    });
+  }
+
+  irBeneficio(){
+    this.navCtrl.push(PreguntaPage,{
+      pregunta: '¿Qué necesitas'
+    });
+  }
 }
