@@ -23,6 +23,9 @@ export class Auth {
     });
    }
 
+   isAutenticado():boolean {
+     return this.autenticado;
+   }
 
    getUsuarioActivo(uid){
     return this.db.object('usuarios/'+uid);  

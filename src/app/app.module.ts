@@ -24,7 +24,9 @@ import { PreguntaPage } from '../pages/pregunta/pregunta';
 
 /**categorias Bienes */
 import { CategoriasBienesPage } from '../pages/categorias-bienes/categorias-bienes';
+import { SubcategoriasBienesPage } from '../pages/subcategorias-bienes/subcategorias-bienes';
 import { CategoriaService } from '../providers/categoria-service';
+import { BienesPage } from '../pages/bienes/bienes';
 @NgModule({
   declarations: [
     MyApp,
@@ -32,7 +34,9 @@ import { CategoriaService } from '../providers/categoria-service';
     LoginPage,
     RegistroPage,
     PreguntaPage,
-    CategoriasBienesPage
+    CategoriasBienesPage,
+    SubcategoriasBienesPage,
+    BienesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,7 +50,9 @@ import { CategoriaService } from '../providers/categoria-service';
     LoginPage,
     RegistroPage,
     PreguntaPage,
-    CategoriasBienesPage
+    CategoriasBienesPage,
+    SubcategoriasBienesPage,
+    BienesPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -25,4 +25,32 @@ export class CategoriaService {
     }).filter(results => results && results.length>0)
     .map(results => CategoriaBienes.fromJson(results[0]));
   }
+
+
+  /**
+   * Obtiene las llaves de las subcategorias que pertenecen a una categoria especifica
+   * @param categoriaId $key de la categoria a la que quiero obtener las subcategorias
+   */
+  getSubCategoriasKeysPorCategoria(categoriaId:string):Observable<string[]>{
+    return this.db.list(`subCategoriaPorCategoriasBienes/${categoriaId}`).map(scspc =>scspc.map(scpc=>scpc.$key));
+  }
+
+ 
+  /**
+   * scspc -> SubCategoriasPorCategoria
+   * scpc  -> SubCategoriaPorCategoria
+   * @param subCategoriasKeys$ las llaves de todas las subcategorias pertenecientes a una categoria
+   */
+  getSubCategoriasPorSubCategoriaKey(subCategoriasKeys$:Observable<string[]>):Observable<any[]>{
+    return subCategoriasKeys$.map(scspc => scspc.map(key => this.db.object(`subCategoriasBienes/${key}`)))
+    .flatMap(fbojs => Observable.combineLatest(fbojs));
+  }
+
+  /**
+   * Retorna las subCategorias de una categoria de bienes
+   * @param categoriaId $key de la categoria a la que se quiere obtener todas las subcategorias
+   */
+  getSubCategoriasPorCategoria(categoriaId:string):Observable<any[]>{
+    return this.getSubCategoriasPorSubCategoriaKey(this.getSubCategoriasKeysPorCategoria(categoriaId));
+  }
 }

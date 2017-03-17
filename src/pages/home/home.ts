@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { PreguntaPage } from '../pregunta/pregunta';
+import { Auth } from '../../providers/auth';
 /*
   Generated class for the Home page.
 
@@ -14,7 +15,7 @@ import { PreguntaPage } from '../pregunta/pregunta';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(private auth: Auth, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
@@ -35,5 +36,9 @@ export class HomePage {
     this.navCtrl.push(PreguntaPage,{
       pregunta: '¿Qué necesitas'
     });
+  }
+
+  logout(){
+    this.auth.logout();
   }
 }
