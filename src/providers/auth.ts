@@ -14,16 +14,16 @@ export class Auth {
         this.getUsuarioActivo(auth.uid).subscribe(usuario=>{
           this.usuario = Usuario.fromJson(usuario);
           console.log("Usuario Activo ",this.usuario);
-        
         });
       }else{
         this.autenticado = false;
       }
-      console.log("en el service",this.autenticado);
+      //console.log("en el service",this.autenticado);
     });
    }
 
    isAutenticado():boolean {
+     //console.log("llame a this.isAutenticado y es -> ", this.autenticado);
      return this.autenticado;
    }
 

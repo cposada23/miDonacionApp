@@ -27,6 +27,13 @@ import { CategoriasBienesPage } from '../pages/categorias-bienes/categorias-bien
 import { SubcategoriasBienesPage } from '../pages/subcategorias-bienes/subcategorias-bienes';
 import { CategoriaService } from '../providers/categoria-service';
 import { BienesPage } from '../pages/bienes/bienes';
+
+/** Tabs */
+import { TabsPage } from '../pages/tabs/tabs';
+import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
+import { PerfilPage } from '../pages/perfil/perfil';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,7 +43,10 @@ import { BienesPage } from '../pages/bienes/bienes';
     PreguntaPage,
     CategoriasBienesPage,
     SubcategoriasBienesPage,
-    BienesPage
+    BienesPage,
+    TabsPage,
+    NotificacionesPage,
+    PerfilPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -52,7 +62,10 @@ import { BienesPage } from '../pages/bienes/bienes';
     PreguntaPage,
     CategoriasBienesPage,
     SubcategoriasBienesPage,
-    BienesPage
+    BienesPage,
+    TabsPage,
+    NotificacionesPage,
+    PerfilPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, App } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { RegistroPage } from '../registro/registro';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
+
 /*
   Generated class for the Login page.
 
@@ -19,7 +21,7 @@ export class LoginPage {
  
   vieneSubCategoria = false;
   loader:any;
-  constructor(public auth:Auth, public loadingCtrl:LoadingController, public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder) {
+  constructor(public auth:Auth, public app:App, public loadingCtrl:LoadingController, public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder) {
     this.form = this.formBuilder.group({
       email:['', Validators.required],
       password: ['', Validators.required]
@@ -49,7 +51,11 @@ export class LoginPage {
       if(this.vieneSubCategoria){
         this.navCtrl.pop();
       }else{
-        this.navCtrl.push(HomePage);
+        //this.navCtrl.push(NotificacionesPage);
+        this.app.getRootNav().setRoot(TabsPage,{
+          id:'hola'
+        });
+        
       }
     
     }).catch(error=>{
